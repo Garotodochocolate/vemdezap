@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="VendeZap: produtos digitais e ferramentas práticas para pequenos negócios e criadores.">
+<title>VendeZap | Ecossistema Digital - Versão 2</title>
+<style>
+:root{--bg:#f5f6f8;--ink:#202a3a;--navy:#172033;--navy2:#263653;--gold:#c6a66b;--muted:#687386;--line:#e5e8ee;--green:#176b4a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--ink);line-height:1.55}a{text-decoration:none;color:inherit}.wrap{width:min(1120px,92%);margin:auto}
+header{background:var(--navy);color:white;padding:17px 0}.nav{display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:900;letter-spacing:.14em}.brand i{font-style:normal;color:var(--gold)}nav{display:flex;gap:20px;font-size:.9rem;color:#d6deeb}
+.hero{background:linear-gradient(130deg,#172033,#2b3c5b);color:white;padding:74px 0 68px}.eyebrow{font-size:.75rem;font-weight:850;letter-spacing:.16em;text-transform:uppercase;color:#e5c98f}.hero h1{font-size:clamp(2.4rem,6vw,4.7rem);line-height:1.02;max-width:820px;margin:15px 0}.hero p{max-width:690px;color:#d5ddeb;font-size:1.08rem}.btn{display:inline-block;background:var(--gold);color:#172033;font-weight:850;padding:13px 20px;border-radius:10px;margin-top:18px}
+section{padding:48px 0}.heading{max-width:700px;margin-bottom:24px}.heading h2{color:var(--navy);font-size:2rem;margin:0 0 8px}.heading p{color:var(--muted);margin:0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.card{background:white;border:1px solid var(--line);border-radius:17px;padding:22px;box-shadow:0 8px 25px #17203308}.icon{width:43px;height:43px;border-radius:12px;background:#f3eee4;display:grid;place-items:center;font-size:1.3rem}.card h3{margin:14px 0 6px;color:var(--navy)}.card p{font-size:.93rem;color:var(--muted);margin:0 0 13px}.tag{display:inline-block;border-radius:20px;background:#eef1f5;color:#526075;padding:4px 9px;font-size:.72rem;font-weight:800}.tag.live{background:#e5f3ec;color:#176b4a}.tag.plan{background:#fff4dc;color:#805b1a}.card ul{padding-left:18px;color:#4e596a;font-size:.88rem}.dark{background:var(--navy);color:white}.dark .heading h2{color:white}.dark .heading p{color:#c7d0df}.product{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:center}.productbox{background:linear-gradient(145deg,#101a2d,#34445f);color:white;border-radius:17px;padding:30px;min-height:260px;display:flex;flex-direction:column;justify-content:space-between}.productbox h3{font-size:2.1rem;line-height:1.08;max-width:400px;margin:12px 0}.productbox .gold{color:#e5c98f;font-size:.75rem;letter-spacing:.15em;font-weight:850}.price{font-size:2rem;font-weight:900;color:var(--green)}.panel{background:white;border:1px solid var(--line);border-radius:17px;padding:24px}.roadmap{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}.step b{color:var(--navy)}.n{font-size:1.3rem;font-weight:900;color:var(--gold)}.notice{background:#fff7e8;border:1px solid #eeddb8;color:#644d20;border-radius:12px;padding:15px;font-size:.9rem}.foot{background:#111a2b;color:#cbd4e2;padding:28px 0;font-size:.85rem}
+@media(max-width:800px){nav{display:none}.grid{grid-template-columns:1fr 1fr}.product{grid-template-columns:1fr}.roadmap{grid-template-columns:1fr}}@media(max-width:520px){.grid{grid-template-columns:1fr}.hero{padding:55px 0}}
+
+.calc-wrap{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+.calc-fields{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:.84rem;font-weight:800;color:var(--navy)}
+.field input{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font:inherit;color:var(--ink);background:#fff}
+.field small{color:var(--muted);font-size:.75rem}
+.calc-result{background:var(--navy);color:#fff;border-radius:15px;padding:22px}
+.calc-result .muted{color:#c7d0df;font-size:.88rem}
+.calc-price{font-size:2.25rem;font-weight:900;color:#e5c98f;margin:4px 0 14px}
+.calc-line{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #ffffff20;font-size:.9rem}
+.calc-line:last-child{border:0}
+.calc-error{color:#8a2e24;background:#fff0ed;border:1px solid #f1c3bb;padding:10px;border-radius:9px;font-size:.85rem;display:none;margin-top:12px}
+.calc-note{font-size:.8rem;color:var(--muted);margin-top:12px}
+.copy-btn{border:0;cursor:pointer;font:inherit}
+@media(max-width:650px){.calc-wrap{grid-template-columns:1fr}.calc-fields{grid-template-columns:1fr}}
+
+</style></head>
+<body>
+<header><div class="wrap nav"><div class="brand">VENDE<i>ZAP</i></div><nav><a href="#solucoes">Soluções</a><a href="#digital">Produtos digitais</a><a href="#ia">IA Studio</a><a href="#ferramentas">Ferramentas</a><a href="#plano">Nossa evolução</a></nav></div></header>
+<div class="hero"><div class="wrap"><div class="eyebrow">Um ecossistema para empreender e criar</div><h1>Seu negócio. Suas ferramentas. Suas próximas ideias.</h1><p>Uma plataforma que reúne produtos digitais, vitrines online, organização de negócios e ferramentas inteligentes para pequenos empreendedores e criadores.</p><a class="btn" href="#solucoes">Explorar o VendeZap</a></div></div>
+<main>
+<section id="solucoes"><div class="wrap"><div class="heading"><h2>Um lugar. Várias soluções.</h2><p>Organizamos nossas ideias anteriores em módulos que podem crescer sem transformar a plataforma em um amontoado de funções.</p></div>
+<div class="grid">
+<article class="card"><div class="icon">🛍️</div><span class="tag live">Conceito principal</span><h3>VendeZap Store</h3><p>Uma vitrine digital simples para pequenos negócios venderem e receberem pedidos.</p><ul><li>Catálogo de produtos</li><li>Pedidos pelo WhatsApp</li><li>Gestão básica de pedidos</li><li>Cupons e identidade da loja</li></ul></article>
+<article class="card" id="ia"><div class="icon">✦</div><span class="tag plan">Planejado</span><h3>Wolf AI Studio</h3><p>Inspirado no Wolf Jarvis: ferramentas assistidas por IA para criar e organizar conteúdo digital.</p><ul><li>Ideias e roteiros de vídeos</li><li>Textos e descrições de produtos</li><li>Briefings de sites e aplicativos</li><li>Assistentes por tarefa</li></ul></article>
+<article class="card" id="digital"><div class="icon">📦</div><span class="tag live">Primeiro produto criado</span><h3>VendeZap Digital</h3><p>Uma loja de materiais digitais originais para quem empreende e cria conteúdo.</p><ul><li>Kits de redes sociais</li><li>Planilhas e calculadoras</li><li>Guias e modelos editáveis</li><li>Materiais para criadores</li></ul></article>
+<article class="card"><div class="icon">📊</div><span class="tag plan">Em planejamento</span><h3>Finance & Business</h3><p>Ferramentas para acompanhar a rotina financeira e comercial de pequenos negócios.</p><ul><li>Vendas e despesas</li><li>Estoque e precificação</li><li>Orçamentos</li><li>Indicadores simples</li></ul></article>
+<article class="card"><div class="icon">🏗️</div><span class="tag plan">Linha especializada futura</span><h3>Build & Property</h3><p>Parte das ideias da plataforma de construção e imóveis, convertida em recursos úteis.</p><ul><li>Planilhas de materiais e custos</li><li>Modelos de orçamento de obra</li><li>Organização de etapas</li><li>Guias de planejamento</li></ul></article>
+<article class="card"><div class="icon">🎓</div><span class="tag plan">Planejado</span><h3>VendeZap Academy</h3><p>Aprendizagem prática para quem quer começar a empreender e usar ferramentas digitais.</p><ul><li>IA para iniciantes</li><li>Programação básica</li><li>Marketing e conteúdo</li><li>Guias de inclusão e acessibilidade</li></ul></article>
+</div></div></section>
+<section class="dark"><div class="wrap product"><div><div class="eyebrow">Primeiro produto digital</div><h2 style="font-size:2.1rem;margin:10px 0">KIT EMPREENDEDOR PRO</h2><p style="color:#d5ddeb">O primeiro pacote do VendeZap Digital já foi preparado: ideias para Instagram, modelos de Stories, mensagens para WhatsApp, planilha de vendas e estoque e guia de divulgação.</p><a class="btn" href="#produto">Ver detalhes do kit</a></div><div class="productbox" id="produto"><div class="gold">VENDEZAP DIGITAL • EDIÇÃO 01</div><h3>KIT EMPREENDEDOR PRO</h3><div class="gold">CONTEÚDO • ATENDIMENTO • ORGANIZAÇÃO</div></div></div></section>
+
+<section id="ferramentas">
+  <div class="wrap">
+    <div class="heading">
+      <h2>Primeira ferramenta: calculadora de preço</h2>
+      <p>Uma ferramenta simples para simular um preço de venda considerando custos, taxas e a margem desejada.</p>
+    </div>
+    <div class="calc-wrap">
+      <div class="panel">
+        <div class="calc-fields">
+          <div class="field">
+            <label for="cost">Custo do produto (R$)</label>
+            <input id="cost" type="number" min="0" step="0.01" value="20">
+            <small>Quanto você paga pelo produto ou material.</small>
+          </div>
+          <div class="field">
+            <label for="extra">Embalagem e outros custos (R$)</label>
+            <input id="extra" type="number" min="0" step="0.01" value="2">
+            <small>Inclua custos por unidade.</small>
+          </div>
+          <div class="field">
+            <label for="fees">Taxas sobre a venda (%)</label>
+            <input id="fees" type="number" min="0" max="99" step="0.1" value="5">
+            <small>Ex.: taxa de plataforma ou pagamento.</small>
+          </div>
+          <div class="field">
+            <label for="margin">Margem desejada (%)</label>
+            <input id="margin" type="number" min="0" max="99" step="0.1" value="25">
+            <small>Percentual do preço que deseja manter como lucro.</small>
+          </div>
+        </div>
+        <div class="calc-error" id="calcError" role="alert"></div>
+        <p class="calc-note">Simulação educativa. Não considera impostos, custos fixos, perdas ou particularidades do seu negócio.</p>
+      </div>
+      <div class="calc-result" aria-live="polite">
+        <div class="eyebrow">SIMULAÇÃO DE VENDA</div>
+        <div class="muted">Preço sugerido</div>
+        <div class="calc-price" id="suggestedPrice">R$ 0,00</div>
+        <div class="calc-line"><span>Custos por unidade</span><b id="totalCosts">R$ 0,00</b></div>
+        <div class="calc-line"><span>Taxas estimadas</span><b id="feeValue">R$ 0,00</b></div>
+        <div class="calc-line"><span>Lucro estimado</span><b id="profitValue">R$ 0,00</b></div>
+        <div class="calc-line"><span>Margem estimada</span><b id="marginValue">0%</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section><div class="wrap"><div class="heading"><h2>Como vamos construir sem desperdiçar dinheiro</h2><p>Primeiro validar, depois desenvolver. Recursos planejados não serão apresentados como funções já disponíveis.</p></div><div class="roadmap" id="plano">
+<div class="step"><div class="n">01</div><b>Validar o produto</b><p>Mostrar o kit a pequenos empreendedores, ouvir opiniões e ajustar o conteúdo.</p><span class="tag live">Em andamento</span></div>
+<div class="step"><div class="n">02</div><b>Publicar a vitrine</b><p>Apresentar produtos, explicar o que o cliente recebe e configurar pagamento e entrega com segurança.</p><span class="tag plan">Próxima etapa</span></div>
+<div class="step"><div class="n">03</div><b>Adicionar ferramentas</b><p>Priorizar recursos que clientes pedirem e que possamos manter com custo sustentável.</p><span class="tag plan">Futuro</span></div>
+</div></div></section>
+<section><div class="wrap"><div class="notice"><b>Transparência:</b> esta página apresenta a visão e o planejamento do ecossistema. VendeZap Store, Wolf AI Studio, Finance & Business, Build & Property e Academy ainda são conceitos em planejamento, não serviços funcionais. O KIT EMPREENDEDOR PRO possui arquivos iniciais, mas ainda precisa de revisão, validação e preparação comercial. Não há checkout nem promessa de resultados.</div></div></section>
+</main><footer class="foot"><div class="wrap"><b>VENDEZAP DIGITAL</b><p>Ferramentas práticas para pequenos negócios e criadores.</p><p>Projeto em desenvolvimento • Atualize dados comerciais, privacidade e suporte antes de abrir vendas.</p></div></footer>
+
+<script>
+(function(){
+  const ids = ["cost","extra","fees","margin"];
+  const fields = Object.fromEntries(ids.map(id => [id, document.getElementById(id)]));
+  const money = value => new Intl.NumberFormat("pt-BR", {style:"currency",currency:"BRL"}).format(value);
+  const error = document.getElementById("calcError");
+
+  function update(){
+    const values = Object.fromEntries(ids.map(id => [id, Number(fields[id].value)]));
+    const invalid = ids.some(id => !Number.isFinite(values[id]) || values[id] < 0);
+    const rate = (values.fees + values.margin) / 100;
+
+    if(invalid || rate >= 1){
+      error.textContent = invalid
+        ? "Preencha todos os campos com valores iguais ou maiores que zero."
+        : "A soma das taxas e da margem precisa ser menor que 100%.";
+      error.style.display = "block";
+      document.getElementById("suggestedPrice").textContent = "—";
+      ["totalCosts","feeValue","profitValue"].forEach(id => document.getElementById(id).textContent = "—");
+      document.getElementById("marginValue").textContent = "—";
+      return;
+    }
+
+    error.style.display = "none";
+    const costs = values.cost + values.extra;
+    const price = costs / (1 - rate);
+    const fees = price * values.fees / 100;
+    const profit = price - costs - fees;
+    const actualMargin = price > 0 ? (profit / price) * 100 : 0;
+
+    document.getElementById("suggestedPrice").textContent = money(price);
+    document.getElementById("totalCosts").textContent = money(costs);
+    document.getElementById("feeValue").textContent = money(fees);
+    document.getElementById("profitValue").textContent = money(profit);
+    document.getElementById("marginValue").textContent = actualMargin.toFixed(1).replace(".", ",") + "%";
+  }
+  ids.forEach(id => fields[id].addEventListener("input", update));
+  update();
+})();
+</script>
+
+</body></html>
